@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<button type="button" class="btn btn-primary btn-lg" id="button_review" onclick="location.href='{% url 'new-review' %}'">Nova Avaliação</button>
+
+{% if review %}
+{% for review in review %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2">{{ review.author }}</a>
+                <small class="text-muted">{{ review.date_posted }}</small>
+            </div>
+            <h2><a class="article-title">{{ review.title }}</a></h2>
+            <p class="article-content">{{ review.details }}</p>
+        </div>
+    </article>
+{% endfor %}
+{% else %}
+    <h2>Nada para ver aqui...</h2>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a href="{% url 'blog-home' %}">Voltar</a>
+            </small>
+        </div>
+{% endif %}
+{% endblock content %}
