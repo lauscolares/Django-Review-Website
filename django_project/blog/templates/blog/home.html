@@ -1,15 +1,18 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for company in companies %}
-    <article class="media content-section">
-      <div class="media">
-        <img class="rounded-circle account-img" src="{{ company.image.url }}" alt="Company logo" width="500" height="600">
-        <div class="media-body">
-          <h2><a class="article-title" href="{% url 'review' company.id %}">{{ company.name }}</a></h2>
-          <p class="article-content">{{ company.description }}</p>
-          <p class="article-content"><a href="{{ company.website }}">Acesse o site</a></p>
-        </div>
+  {% for empresa in companies %}
+  <article class="media content-section">
+    <div class="media">
+    <img class="rounded-circle account-img" src="{{ empresa.image.url }}" alt="empresa logo" width="500" height="600">
+    <div class="media-body">
+      <div class="article-metadata">
+      <h2><a class="article-title" href="{% url 'review' empresa.id %}">{{ empresa.name }}</a></h2>
       </div>
-      </article>
-    {% endfor %}
+      <p class="article-content">{{ empresa.description }}</p>
+      <p class="article-content"><strong class="highlighted-avaliação">Média de avaliações: {{ empresa.average_avaliação|default:"Sem avaliações" }}</strong></p>
+      <p class="article-content"><a href="{{ empresa.website }}">Acesse o site</a></p>
+    </div>
+    </div>
+    </article>
+  {% endfor %}
 {% endblock content %}

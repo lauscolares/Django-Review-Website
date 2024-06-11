@@ -18,10 +18,10 @@ class Review(models.Model):
         ('4', 4),
         ('5', 5),
     )
-    title = models.CharField(max_length=100)
-    rating = models.CharField(max_length=7, choices = RATING_CHOICES, null=True)
-    company = models.ForeignKey(Companies, on_delete=models.CASCADE, null=True)
-    details = models.TextField()
+    título = models.CharField(max_length=100)
+    avaliação = models.CharField(max_length=7, choices = RATING_CHOICES, null=True)
+    empresa = models.ForeignKey(Companies, on_delete=models.CASCADE, null=True)
+    detalhes = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     

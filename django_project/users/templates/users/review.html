@@ -11,8 +11,9 @@
                 <a class="mr-2">{{ review.author }}</a>
                 <small class="text-muted">{{ review.date_posted }}</small>
             </div>
-            <h2><a class="article-title">{{ review.title }}</a></h2>
-            <p class="article-content">{{ review.details }}</p>
+            <h2><a class="article-title">{{ review.título }}</a></h2>
+            <p class="article-content">{{ review.detalhes }}</p>
+            <p class="article-content"><strong>Nota: {{ review.avaliação }}</strong></p>
         </div>
     </article>
 {% endfor %}

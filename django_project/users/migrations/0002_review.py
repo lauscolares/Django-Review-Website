@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('details', models.TextField()),
                 ('date_posted', models.DateTimeField(default=django.utils.timezone.now)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('company', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='blog.companies')),
+                ('empresa', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='blog.companies')),
             ],
         ),
     ]

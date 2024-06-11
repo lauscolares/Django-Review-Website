@@ -26,10 +26,10 @@ def profile(request):
     return render(request, 'users/profile.html')
 
 # Review views
-def review(request, company_id):
+def review(request, empresa_id):
     context = {
-        'review': Review.objects.filter(company_id = company_id),
-        'company_id': company_id
+        'review': Review.objects.filter(empresa_id = empresa_id),
+        'empresa_id': empresa_id,
     }
     return render(request, 'users/review.html', context) 
 

@@ -13,4 +13,4 @@ class UserRegisterForm(UserCreationForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ["title", "company", "rating", "details"]
+        fields = ["título", "empresa", "avaliação", "detalhes"]
