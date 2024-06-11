@@ -33,7 +33,6 @@
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="{% url 'new-review' %}">Nova Avaliação</a>
                 <a class="nav-item nav-link" href="{% url 'profile' %}">Perfil</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Sair</a>
                 {% else %}
@@ -56,19 +55,6 @@
               {% endfor %}
             {% endif %}
             {% block content %}{% endblock content %}
-          {% comment %} </div>
-          <div class="col-md-4">
-            <div class="content-section">
-              <h3>Our Sidebar</h3>
-              <p class="text-muted">You can put any information here you'd like.
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-light">Latest Posts</li>
-                  <li class="list-group-item list-group-item-light">Announcements</li>
-                  <li class="list-group-item list-group-item-light">Calendars</li>
-                  <li class="list-group-item list-group-item-light">etc</li>
-                </ul>
-              </p>
-            </div> {% endcomment %}
           </div>
         </div>
       </main>

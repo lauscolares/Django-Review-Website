@@ -21,10 +21,10 @@ class Review(models.Model):
     título = models.CharField(max_length=100)
     avaliação = models.CharField(max_length=7, choices = RATING_CHOICES, null=True)
     empresa = models.ForeignKey(Companies, on_delete=models.CASCADE, null=True)
-    detalhes = models.TextField()
+    detalhes = models.TextField(max_length=300)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.title
+        return self.título
     

@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
-<button type="button" class="btn btn-primary btn-lg" id="button_review" onclick="location.href='{% url 'new-review' %}'">Nova Avaliação</button>
+<button type="button" class="btn btn-primary btn-lg" id="button_review" onclick="location.href='{% url 'new-review' empresa_id empresa_name %}'">Nova Avaliação</button>
 
 {% if review %}
 {% for review in review %}
@@ -18,11 +18,15 @@
     </article>
 {% endfor %}
 {% else %}
-    <h2>Nada para ver aqui...</h2>
+<article class="media content-section">
+    <div class="media-body">
+        <h2><a class="article-title">Nada para ver aqui...</a></h2>
         <div class="border-top pt-3">
-            <small class="text-muted">
+            <strong class="text-muted">
                 <a href="{% url 'blog-home' %}">Voltar</a>
-            </small>
+            </strong>
         </div>
+    </div>
+</article>
 {% endif %}
 {% endblock content %}

@@ -1,9 +1,13 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <h2>Você saiu da conta.</h2>
+<article class="media content-section">
+    <div class="media-body">
+        <h2><a class="article-title">Você saiu da conta.</a></h2>
     <div class="border-top pt-3">
-        <small class="text-muted">
+        <strong class="text-muted">
            <a href="{% url 'login' %}">Logar novamente</a>
-        </small>
+        </strong>
     </div>
+    </div>
+</article>
 {% endblock content %}

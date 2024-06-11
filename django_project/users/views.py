@@ -26,22 +26,24 @@ def profile(request):
     return render(request, 'users/profile.html')
 
 # Review views
-def review(request, empresa_id):
+def review(request, empresa_id, empresa_name):
     context = {
         'review': Review.objects.filter(empresa_id = empresa_id),
         'empresa_id': empresa_id,
+        'empresa_name': empresa_name,
     }
     return render(request, 'users/review.html', context) 
 
-def newReview(request):
+def newReview(request, empresa_id, empresa_name):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
             review.author = request.user
+            review.empresa_id = empresa_id
             form.save()
             messages.success(request, f'Sua Avaliação foi salva!')
             return redirect('blog-home')
     else:
         form = ReviewForm()
-    return render(request, 'users/reviewForm.html', {'form': form})
+    return render(request, 'users/reviewForm.html', {'form': form, 'empresa_id': empresa_id, 'empresa_name': empresa_name})

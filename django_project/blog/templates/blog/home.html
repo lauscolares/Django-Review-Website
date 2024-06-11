@@ -6,7 +6,7 @@
     <img class="rounded-circle account-img" src="{{ empresa.image.url }}" alt="empresa logo" width="500" height="600">
     <div class="media-body">
       <div class="article-metadata">
-      <h2><a class="article-title" href="{% url 'review' empresa.id %}">{{ empresa.name }}</a></h2>
+      <h2><a class="article-title" href="{% url 'review' empresa.id empresa.name %}">{{ empresa.name }}</a></h2>
       </div>
       <p class="article-content">{{ empresa.description }}</p>
       <p class="article-content"><strong class="highlighted-avaliação">Média de avaliações: {{ empresa.average_avaliação|default:"Sem avaliações" }}</strong></p>
