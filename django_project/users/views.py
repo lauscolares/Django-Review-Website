@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm, ReviewForm
+from .forms import UserRegisterForm, ReviewForm, ProfileUpdateForm
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -23,7 +23,21 @@ def logout_view(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    if request.method == 'POST':
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Seu perfil foi atualizado!')
+            return redirect('profile')
+    else:
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'p_form': p_form,
+        'review': Review.objects.filter(author=request.user),
+    }
+
+    return render(request, 'users/profile.html', context)
 
 # Review views
 def review(request, empresa_id, empresa_name):

@@ -8,7 +8,37 @@
         <h2 class="account-heading">{{ user.username }}</h2>
         <p class="text-secondary">{{ user.email }}</p>
       </div>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ p_form|crispy }}
+        <button class="btn btn-primary" type="submit">Atualizar</button>
+    </form>
     </div>
-    <!-- FORM HERE -->
-  </div>
+    {% if review %}
+    {% for review in review %}
+        <article class="media content-section mt-2">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2">{{ review.author }} - {{ review.empresa.name }}</a>
+                    <small class="text-muted">{{ review.date_posted }}</small>
+                </div>
+                <h2><a class="article-title">{{ review.título }}</a></h2>
+                <p class="article-content">{{ review.detalhes }}</p>
+                <p class="article-content"><strong>Nota: {{ review.avaliação }}</strong></p>
+            </div>
+        </article>
+    {% endfor %}
+    {% else %}
+    <article class="media content-section">
+        <div class="media-body">
+            <h2><a class="article-title">Esse usuário ainda não possui avaliações.</a></h2>
+            <div class="border-top pt-3">
+                <strong class="text-muted">
+                    <a href="{% url 'blog-home' %}">Voltar</a>
+                </strong>
+            </div>
+        </div>
+    </article>
+    {% endif %}
+      </div>
 {% endblock content %}
