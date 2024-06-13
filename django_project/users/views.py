@@ -34,6 +34,7 @@ def review(request, empresa_id, empresa_name):
     }
     return render(request, 'users/review.html', context) 
 
+@login_required
 def newReview(request, empresa_id, empresa_name):
     if request.method == 'POST':
         form = ReviewForm(request.POST)

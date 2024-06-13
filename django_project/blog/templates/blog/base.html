@@ -28,7 +28,15 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'blog-home' %}">Página Inicial</a>
-                <a class="nav-item nav-link" href="{% url 'blog-about' %}">Sobre</a>
+                <a class="nav-item nav-link mr-2" href="{% url 'blog-about' %}">Sobre</a>
+                <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'blog-home-search' %}">
+                  <input class="form-control mr-sm-2" type="search" name="search" placeholder="Busque uma empresa..." value="{{ search|default:"" }}"> 
+                  <button class="btn btn-outline-primary my-2 my-sm-0 mr-2" type="submit"> Buscar </button>
+              </form>
+              <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'clear-search' %}">
+                {% csrf_token %}
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> Limpar Busca </button>
+            </form>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
