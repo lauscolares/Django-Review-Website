@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>Empresa: {{ empresa_name }}</h1>
-<button type="button" class="btn btn-primary btn-lg" id="button_review" onclick="location.href='{% url 'new=review' empresa_id empresa_name %}'">Nova Avaliação</button>
+<button type="button" class="btn btn-primary btn-lg" id="button_review" onclick="location.href='{% url 'new-review' empresa_id empresa_name %}'">Nova Avaliação</button>
 
 {% if review %}
 {% for review in review %}
