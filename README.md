@@ -12,7 +12,7 @@ To run the website, you will need to have the following installed:
 After all the steps, you can run the website locally using the 'py manage.py runserver' command;
 
 # How it is organized?
-The website launches on the home page, where you can access the registered companies, login button and register button.
+The website launches on the home page, where you can access the registered companies, search bar, login button and register button.
 
 If you are already logged in, you will see a profile button and logout button.
 
@@ -26,3 +26,4 @@ SuperUser:
 
 Users:
 - usuario1 (password: NovaSenha123)
+- usuario2 (password: NovaSenha123)
