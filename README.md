@@ -16,7 +16,7 @@ The website launches on the home page, where you can access the registered compa
 
 If you are already logged in, you will see a profile button and logout button.
 
-To add a new review, you can click on the company you want and there you will see a button to create a new review.
+To add a new review, you can click on the company you want and there you will see a button to create a new review. It is only possible to add a review if you are logged in.
 
 It is only possible to add a new company through the Django Admin page (access 'yourLocalLink/admin'). The same applies to delete anything.
 
