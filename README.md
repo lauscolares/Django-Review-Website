@@ -4,7 +4,7 @@ All commands here are the ones I ran on Windows Powershell.
 
 # Instalation and execution
 To run the website, you will need to have the following installed:
-  - Python (personally, I used 3.12)
+  - Python (personally, I used 3.12.4)
   - Django (run: pip install django)
   - Crispy (run: pip install django-crispy-forms, pip install crispy-bootstrap4)
   - Pillow (run: pip install Pillow)
