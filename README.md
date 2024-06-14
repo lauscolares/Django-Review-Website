@@ -1,6 +1,6 @@
 # Django-Review-Website
 Django website developed on Windows for a tecnical test.
-All commands here are the ones I used on Windows.
+All commands here are the ones I ran on Windows Powershell.
 
 # Instalation and execution
 To run the website, you will need to have the following installed:
