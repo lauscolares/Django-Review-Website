@@ -5,7 +5,7 @@ from users.models import Review
 from django.views.decorators.http import require_POST
 
 def home(request):
-    empresas = Companies.objects.all()
+    empresas = Companies.objects.all().order_by('name')
     query = request.GET.get('search')
     if query:
         request.session['search'] = query
