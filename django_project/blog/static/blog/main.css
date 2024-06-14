@@ -1,12 +1,12 @@
 body {
-  background: linear-gradient(to top, #ff5113, #051a5c);
+  background: linear-gradient(to top, #ff5113, #faf5e9 );
   background-attachment: fixed;
   color: #333333;
   margin-top: 5rem;
 }
 
 h1 {
-  color: #faf5e9;
+  color: #051a5c;
 }
 
 h2, h3, h4, h5, h6 {

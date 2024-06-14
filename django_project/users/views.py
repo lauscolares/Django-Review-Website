@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from blog.models import Companies
+from django.db.models import Avg
 from .forms import UserRegisterForm, ReviewForm, ProfileUpdateForm
 from django.contrib.auth import logout
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Review
 
@@ -23,17 +24,7 @@ def logout_view(request):
 
 @login_required
 def profile(request):
-    if request.method == 'POST':
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        if p_form.is_valid():
-            p_form.save()
-            messages.success(request, f'Seu perfil foi atualizado!')
-            return redirect('profile')
-    else:
-        p_form = ProfileUpdateForm(instance=request.user.profile)
-
     context = {
-        'p_form': p_form,
         'review': Review.objects.filter(author=request.user),
     }
 
@@ -41,10 +32,15 @@ def profile(request):
 
 # Review views
 def review(request, empresa_id, empresa_name):
+    empresas = Companies.objects.filter(id = empresa_id)
+    for empresa in empresas:
+        empresa.average_avaliação = Review.objects.filter(empresa=empresa).aggregate(Avg('avaliação'))['avaliação__avg']
+        empresa.website = empresa.website    
     context = {
         'review': Review.objects.filter(empresa_id = empresa_id),
         'empresa_id': empresa_id,
         'empresa_name': empresa_name,
+        'empresas': empresas,
     }
     return render(request, 'users/review.html', context) 
 

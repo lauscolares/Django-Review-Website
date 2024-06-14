@@ -1,9 +1,10 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
-<h1>Empresa: {{ empresa_name }}</h1>
 <button type="button" class="btn btn-primary btn-lg" id="button_review" onclick="location.href='{% url 'new-review' empresa_id empresa_name %}'">Nova Avaliação</button>
 
+<div class="row">
+<div class="col-md-8">
 {% if review %}
 {% for review in review %}
     <article class="media content-section">
@@ -30,4 +31,19 @@
     </div>
 </article>
 {% endif %}
+{% for empresa in empresas %}
+</div>
+    <div class="col-md-4">
+        <div class="content-section">
+        <h3>{{ empresa_name }}</h3>
+        <p class="text-muted">Veja aqui algumas informações sobre essa empresa.
+            <ul class="list-group">
+            <li class="list-group-item list-group-item-light">Website: <a href="{{ empresa.website }}">{{ empresa.website }}</a></li>
+            <li class="list-group-item list-group-item-light">Nota média: {{ empresa.average_avaliação|default:"-" }}</li>
+            </ul>
+        </p>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock content %}
