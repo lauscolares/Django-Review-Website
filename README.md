@@ -1,4 +1,4 @@
-# Django-Review-Website
+# Django-Review-Websitewfaegwataw
 Django website developed on Windows for a tecnical test.
 All commands here are the ones I ran on Windows Powershell.
 
